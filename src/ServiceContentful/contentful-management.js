@@ -7,6 +7,11 @@ const contentTypeEmployee = 'employee';
 const contentTypeDisability = 'disability';
 const client = createClient({ accessToken });
 
+/**
+ * Adds a employee.
+ * @param {object} destructuring keys (username, code, startDate, dui, positon).
+ * @return {Promise} The result of operation.
+ */
 const createEmployee = ({ username, code, startDate, dui, position }) => {
   return new Promise((resolve, reject) => {
     client
@@ -29,11 +34,11 @@ const createEmployee = ({ username, code, startDate, dui, position }) => {
   });
 };
 
-// const addEmployee = { username: 'String', code: 'cacscs', dui: '45123', position: 'Gerente' };
-// createEmployee(addEmployee)
-//   .then((result) => console.log('Agregado', result))
-//   .catch((error) => console.log('Ocurrio error', error));
-
+/**
+ * Adds a Disability.
+ * @param {object} destructuring keys (code, dateAdmission, medicalUnit, doctor, initiate, end).
+ * @return {Promise} The result of operation.
+ */
 const createDisability = ({ code, dateAdmission, medicalUnit, doctor, initiate, end }) => {
   return new Promise((resolve, reject) => {
     client
@@ -57,18 +62,11 @@ const createDisability = ({ code, dateAdmission, medicalUnit, doctor, initiate, 
   });
 };
 
-// const addDisability = {
-//   code: '7ursXNw3jcVRnXQoq8vOkO',
-//   dateAdmission: Date.now(),
-//   medicalUnit: 'Especialidad',
-//   doctor: 'The Good Doctor',
-//   initiate: Date.parse('Jan 1, 2021 23:15:30') || Date.now,
-//   end: Date.parse('Jan 6, 2021 00:00:00'),
-// };
-// createDisability(addDisability)
-//   .then((result) => console.log('Agregado', result))
-//   .catch((error) => console.log('Ocurrio error', error));
-
+/**
+ * Update an entry using entry.sys.id.
+ * @param {object} destructuring keys (id, username, code, dui, position).
+ * @return {Promise} The result of operation.
+ */
 const updateEmployee = ({ id, username, code, dui, position }) => {
   return new Promise((resolve, reject) => {
     client
@@ -88,15 +86,11 @@ const updateEmployee = ({ id, username, code, dui, position }) => {
   });
 };
 
-// const updateDataEmployee = {
-//   id: '2RUko5vn1oL0A2GbrWcTeB',
-//   username: 'Kernel',
-//   code: 'SAJKCksjlsdewu',
-//   dui: '999999-2',
-//   position: 'Gerente GENERAL',
-// };
-// updateEmployee(updateDataEmployee);
-
+/**
+ * Delete an entry using entry.sys.id.
+ * @param {string} id keys ID to delete.
+ * @return {Promise} The result of operation.
+ */
 const deleteEmployee = (id) => {
   return new Promise((resolve, reject) => {
     client
@@ -110,9 +104,4 @@ const deleteEmployee = (id) => {
   });
 };
 
-const idDelete = '57TRj2yLPoE7UOyfTM5wXx';
-deleteEmployee(idDelete)
-  .then((result) => console.log(result))
-  .catch((error) => console.log(error));
-
-export { createEmployee };
+export { createEmployee, createDisability, updateEmployee, deleteEmployee };

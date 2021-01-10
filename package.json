@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "management": "node -r esm ./src/ServiceContentful/contentful-management.js",
-    "delivery": "node -r esm ./src/ServiceContentful/contentful-delivery.js"
+    "start": "node -r esm ./src/index.js"
   },
   "keywords": [],
   "author": "",

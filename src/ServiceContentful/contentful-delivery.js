@@ -7,6 +7,11 @@ const contentTypeEmployee = 'employee';
 const contentTypeDisability = 'disability';
 const client = createClient({ accessToken, environment, space });
 
+/**
+ * Get list of employees.
+ * @param {string} contentType contentType.
+ * @return {Promise} The result of fetching data.
+ */
 const fetchData = (contentType) => {
   return new Promise((resolve, reject) => {
     client
@@ -20,32 +25,4 @@ const fetchData = (contentType) => {
 
 const getAllEmployee = fetchData(contentTypeEmployee);
 const getAllDisability = fetchData(contentTypeDisability);
-
-getAllEmployee
-  .then((result) => {
-    const employeeList = result.reduce((accumulator, currentValue) => {
-      const {
-        sys: { id },
-        fields: { username, code, startDate, dui, position },
-      } = currentValue;
-      return [...accumulator, { id, username, code, startDate, dui, position: position || '' }];
-    }, []);
-    console.log(employeeList);
-  })
-  .catch((error) => console.log(error));
-
-// getAllDisability
-//   .then((result) => {
-//     const disabilityList = result.reduce((accumulator, currentValue) => {
-//       const {
-//         sys: { id },
-//         fields: {
-//           code: { fields: employee },
-//         },
-//         fields: { dateAdmission, medicalUnit, doctor, initiate, end },
-//       } = currentValue;
-//       return [...accumulator, { id, dateAdmission, medicalUnit, doctor, initiate, end, employee }];
-//     }, []);
-//     console.log(disabilityList);
-//   })
-//   .catch((error) => console.log(error));
+export { getAllEmployee, getAllDisability };
