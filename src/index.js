@@ -1,7 +1,6 @@
 import CatDog from './ServiceContentful/CatDog';
 
-/* Obtener Lista de incapacidades */
-
+// Get Employee List
 CatDog.getAllDisability
   .then((result) => {
     const disabilityList = result.reduce((accumulator, currentValue) => {
