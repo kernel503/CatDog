@@ -1,0 +1,19 @@
+{
+  "name": "manage-contenful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "management": "node -r esm ./src/ServiceContentful/contentful-management.js",
+    "delivery": "node -r esm ./src/ServiceContentful/contentful-delivery.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "contentful": "^8.1.7",
+    "contentful-management": "^7.5.1",
+    "esm": "^3.2.25"
+  }
+}
