@@ -38,7 +38,7 @@ CatDog.updateEmployee(updateDataEmployee);
 ## Delete employee
 ```js
 const idDelete = '57TRj2yLPoE7UOyfTM5wXx';
-CatDog.updateEmployee(idDelete)
+CatDog.deleteEmployee(idDelete)
   .then((result) => console.log(result))
   .catch((error) => console.log(error));
 ```
