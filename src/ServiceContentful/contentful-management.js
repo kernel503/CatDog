@@ -67,7 +67,7 @@ const createDisability = ({ code, dateAdmission, medicalUnit, doctor, initiate, 
  * @param {object} destructuring keys (id, username, code, dui, position).
  * @return {Promise} The result of operation.
  */
-csacsa
+
 const updateEmployee = ({ id, username, code, dui, position }) => {
   return new Promise((resolve, reject) => {
     client
